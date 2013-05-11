@@ -3,7 +3,7 @@ package com.android.iSchedule;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-
+//test
 public class AddEvent extends Activity {
 
 	@Override
