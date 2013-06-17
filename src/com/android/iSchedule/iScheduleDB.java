@@ -338,4 +338,37 @@ public class iScheduleDB extends SQLiteOpenHelper {
 		db.close();
 		return mode;
 	}
+	
+	public List<Event> FuzzyQuery(String key) throws ParseException{
+		List<Event> list = new ArrayList<Event>();
+		SQLiteDatabase db = getReadableDatabase();
+
+		String SEARCH_EVENT = "select * from " + EVENT_TABLE_NAME 
+				+ " where title LIKE '%" + key + "%' " 
+				/*+ " union select * from " + EVENT_TABLE_NAME 
+				+ " where place LIKE '%" + key + "%' "
+				+ " union select * from " + EVENT_TABLE_NAME 
+				+ " where content LIKE '%" + key + "%' "
+				+ " union select * from " + EVENT_TABLE_NAME 
+				+ " where creattime LIKE '%" + key + "%' "
+				+ " union select * from " + EVENT_TABLE_NAME 
+				+ " where starttime LIKE '%" + key + "%' "
+				+ " union select * from " + EVENT_TABLE_NAME 
+				+ " where endtime LIKE '%" + key + "%' "*/;
+		// other FuzzyQuery, function to do ~~
+		// Log.d("test", SEARCH_EVENT);
+		
+		Cursor c = db.rawQuery(SEARCH_EVENT, null);
+		while (c.moveToNext()){
+			Event event = new Event(c.getString(1),c.getString(2),c.getString(3),
+					new Date(dateFormat.parse(c.getString(4)).getTime()), new Date(dateFormat.parse(c.getString(5)).getTime()),
+					new Date(dateFormat.parse(c.getString(6)).getTime()), new Date(dateFormat.parse(c.getString(7)).getTime()));
+			event.setEventId(c.getLong(0));
+			list.add(event);
+		}
+		c.close();
+		db.close();
+		
+		return list;
+	}
 }

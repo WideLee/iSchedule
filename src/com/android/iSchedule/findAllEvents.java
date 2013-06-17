@@ -120,7 +120,7 @@ public class findAllEvents extends Activity{
 			if(eventsTitle.equals("")){
 				allEvents = dbHelper.getALLEvent();
 			} else {
-				allEvents = dbHelper.getEventByTitle(eventsTitle);
+				allEvents = dbHelper.FuzzyQuery(eventsTitle);
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();

@@ -462,9 +462,10 @@ public class AddEvent extends Activity {
     		
 			try {
 				Mode mode = dbHelper.getModeById(modifyMode);
-				beginDate = new Date(dateFormat.parse(fromDatePickerButton.getText() + " " + fromTimePickerButton.getText() + ":00").getTime());
-				endDate = new Date(dateFormat.parse(toDatePickerButton.getText() + " " + toTimePickerButton.getText() + ":00").getTime());
-				Date frequencyEndDate = new Date(dateFormat.parse(endDatePickerButton.getText() + " 00:00:00").getTime());
+				SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日  E HH:mm:ss");
+				beginDate = new Date(format.parse(fromDatePickerButton.getText() + " " + fromTimePickerButton.getText() + ":00").getTime());
+				endDate = new Date(format.parse(toDatePickerButton.getText() + " " + toTimePickerButton.getText() + ":00").getTime());
+				Date frequencyEndDate = new Date(format.parse(endDatePickerButton.getText() + " 00:00:00").getTime());
 				
 				Calendar curBeginCalendar = new GregorianCalendar();
 				curBeginCalendar.setTime(beginDate);
