@@ -295,7 +295,6 @@ public class Main extends Activity {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					// TODO Auto-generated method stub
 					dialog.cancel();
 				}
 			}).create();
@@ -311,7 +310,6 @@ public class Main extends Activity {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					// TODO Auto-generated method stub
 					dialog.cancel();
 				}
 			}).create();
@@ -343,7 +341,6 @@ public class Main extends Activity {
 						try {
 							list = helper.getEventByTitle(title);
 						} catch (ParseException e) {
-							// TODO 自动生成的 catch 块
 							e.printStackTrace();
 						}
 						for(int i = 0; i < list.size(); i++){
@@ -387,7 +384,6 @@ public class Main extends Activity {
 						try {
 							dbHelper.deleteModify(dbHelper.getEventById(eventId));
 						} catch (ParseException e) {
-							// TODO 自动生成的 catch 块
 							e.printStackTrace();
 						}
 						dbHelper.deleteEventById(eventId);

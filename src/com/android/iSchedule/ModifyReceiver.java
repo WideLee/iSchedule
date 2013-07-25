@@ -34,7 +34,7 @@ public class ModifyReceiver extends BroadcastReceiver{
 		
 		//设置通知栏信息
 		int icon = R.drawable.ic_launcher;
-		CharSequence text = "已经更改为：" + (VOLUME == 1?" 响铃":" 静音") + " & " + (VIBRATE == 1?"震动":"不震动") + "  么么哒~" ;
+		CharSequence text = "已经更改为：" + (VOLUME == 1?" 响铃":" 静音") + " & " + (VIBRATE == 1?"震动":"不震动");
 		long when = System.currentTimeMillis();
 		Notification notification = new Notification(icon, text, when);
 		//通知栏被点击后会打开查看日程的界面
